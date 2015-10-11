@@ -5,6 +5,7 @@ namespace IntegratedJs
     public class Function
     {
         public string Name { get; set; }
-        public Argument[] Args { get; set; }
+        public string Args { get; set; }
+        public string Description { get; set; }
     }
 }

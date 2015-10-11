@@ -33,6 +33,7 @@ namespace OpenIDE.Core
             ret.InsightRequest += new EventHandler<InsightEventArgs>(InsightRequest);
             ret.ToolTipRequest += new EventHandler<ToolTipRequestEventArgs>(ToolTipRequest);
 
+            ret.Dock = DockStyle.Fill;
 
             Font consolasFont = new Font("Consolas", 9.75f);
             ret.Font = consolasFont;
@@ -41,13 +42,14 @@ namespace OpenIDE.Core
             timer.Enabled = true;
             timer.Interval = 2000;
             timer.Tick += new EventHandler(UpdateFoldings);
+            timer.Tag = ret;
 
             return ret;
         }
 
         private static void UpdateFoldings(object sender, EventArgs e)
         {
-            var s = (TextEditorControl)sender;
+            var s = (TextEditorControl)((Timer)sender).Tag;
             s.Document.FoldingManager.UpdateFolds(null, null);
         }
 

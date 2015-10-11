@@ -30,200 +30,96 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DigitalRune.Windows.TextEditor">
+      <HintPath>..\..\..\..\..\Downloads\DigitalRune-TextEditor-1.3.1\DigitalRune-TextEditor-1.3.1\DigitalRune.Windows.TextEditor\bin\Debug\DigitalRune.Windows.TextEditor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenIDE\bin\Debug\Telerik.WinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenIDE\bin\Debug\Telerik.WinControls.RadDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenIDE\bin\Debug\Telerik.WinControls.Themes.VisualStudio2012Dark.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenIDE\bin\Debug\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2015.1.225.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenIDE\bin\Debug\TelerikCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="updateSystemDotNet.Controller">
+      <HintPath>..\..\..\..\..\..\..\Program Files\updateSystem.NET\Deploy\updateSystemDotNet.Controller.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Argument.cs" />
+    <Compile Include="Dialogs\NewProjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewProjectDialog.Designer.cs">
+      <DependentUpon>NewProjectDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorBuilder.cs" />
+    <Compile Include="FilterBuilder\FilterBuilder.cs" />
+    <Compile Include="FilterBuilder\FilterGroup.cs" />
+    <Compile Include="FilterBuilder\Helpers.cs" />
+    <Compile Include="FilterBuilder\SystemFileType.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FunctionCollection.cs" />
+    <Compile Include="IIDEApplication.cs" />
+    <Compile Include="IIDEPlugIn.cs" />
+    <Compile Include="Localisation\BaseCatalog.cs" />
+    <Compile Include="Localisation\Catalog.cs" />
+    <Compile Include="Localisation\ICatalog.cs" />
+    <Compile Include="Localisation\Loaders\MoFileParser.cs" />
+    <Compile Include="Localisation\Plural\PluralFormProcessor.cs" />
+    <Compile Include="PlugInManager.cs" />
+    <Compile Include="ProjectSystem\File.cs" />
+    <Compile Include="ProjectSystem\FileCollection.cs" />
+    <Compile Include="ProjectSystem\Project.cs" />
+    <Compile Include="ProjectSystem\Solution.cs" />
+    <Compile Include="Prompt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Editor\Actions\BookmarkActions.cs" />
-    <Compile Include="UI\Editor\Actions\CaretActions.cs" />
-    <Compile Include="UI\Editor\Actions\ClipBoardActions.cs" />
-    <Compile Include="UI\Editor\Actions\CompletionActions.cs" />
-    <Compile Include="UI\Editor\Actions\FoldActions.cs" />
-    <Compile Include="UI\Editor\Actions\FormatActions.cs" />
-    <Compile Include="UI\Editor\Actions\HomeEndActions.cs" />
-    <Compile Include="UI\Editor\Actions\IEditAction.cs" />
-    <Compile Include="UI\Editor\Actions\MiscActions.cs" />
-    <Compile Include="UI\Editor\Actions\SelectionActions.cs" />
-    <Compile Include="UI\Editor\Document\Bookmarks\Bookmark.cs" />
-    <Compile Include="UI\Editor\Document\Bookmarks\BookmarkEventHandler.cs" />
-    <Compile Include="UI\Editor\Document\Bookmarks\BookmarkManager.cs" />
-    <Compile Include="UI\Editor\Document\Bookmarks\BookmarkRenderer.cs" />
-    <Compile Include="UI\Editor\Document\Bookmarks\IBookmarkFactory.cs" />
-    <Compile Include="UI\Editor\Document\DefaultDocument.cs" />
-    <Compile Include="UI\Editor\Document\DefaultTextEditorProperties.cs" />
-    <Compile Include="UI\Editor\Document\DocumentEventArgs.cs" />
-    <Compile Include="UI\Editor\Document\DocumentFactory.cs" />
-    <Compile Include="UI\Editor\Document\Folding\CSharpFoldingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Folding\Fold.cs" />
-    <Compile Include="UI\Editor\Document\Folding\FoldingManager.cs" />
-    <Compile Include="UI\Editor\Document\Folding\HlslFoldingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Folding\IFoldingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Folding\XmlFoldingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\CSharpFormattingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\DefaultFormattingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\DocumentAccessor.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\HlslFormattingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\IFormattingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\Indentation.cs" />
-    <Compile Include="UI\Editor\Document\Formatting\XmlFormattingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\DefaultHighlightingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\FontContainer.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightBackground.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightColor.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightingColorNotFoundException.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightingDefinitionInvalidException.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightingDefinitionParser.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightingManager.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightingStrategyFactory.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\HighlightRuleSet.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\IHighlightingStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\LookupTable.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\NextMarker.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\PrevMarker.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\Span.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\SpanStack.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\SyntaxModes\FileSyntaxModeProvider.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\SyntaxModes\ISyntaxModeFileProvider.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\SyntaxModes\ResourceSyntaxModeProvider.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\SyntaxModes\SyntaxMode.cs" />
-    <Compile Include="UI\Editor\Document\Highlighting\TextWord.cs" />
-    <Compile Include="UI\Editor\Document\IDocument.cs" />
-    <Compile Include="UI\Editor\Document\ISegment.cs" />
-    <Compile Include="UI\Editor\Document\ITextEditorProperties.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\DeferredEventList.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineCountChangedEventArgs.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineEventArgs.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineLengthChangedEventArgs.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineManager.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineSegment.cs" />
-    <Compile Include="UI\Editor\Document\LineManager\LineSegmentTree.cs" />
-    <Compile Include="UI\Editor\Document\Markers\Marker.cs" />
-    <Compile Include="UI\Editor\Document\Markers\MarkerStrategy.cs" />
-    <Compile Include="UI\Editor\Document\Markers\MarkerType.cs" />
-    <Compile Include="UI\Editor\Document\Selection\ColumnRange.cs" />
-    <Compile Include="UI\Editor\Document\Selection\DefaultSelection.cs" />
-    <Compile Include="UI\Editor\Document\Selection\ISelection.cs" />
-    <Compile Include="UI\Editor\Document\Selection\SelectionManager.cs" />
-    <Compile Include="UI\Editor\Document\TextAnchor.cs" />
-    <Compile Include="UI\Editor\Document\TextBuffer\GapTextBufferStrategy.cs" />
-    <Compile Include="UI\Editor\Document\TextBuffer\ITextBufferStrategy.cs" />
-    <Compile Include="UI\Editor\Document\TextLocation.cs" />
-    <Compile Include="UI\Editor\GUI\AbstractMargin.cs" />
-    <Compile Include="UI\Editor\GUI\BracketHighlighter.cs" />
-    <Compile Include="UI\Editor\GUI\BrushRegistry.cs" />
-    <Compile Include="UI\Editor\GUI\Caret.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\AbstractCompletionDataProvider.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\AbstractCompletionWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\Completion\CompletionEventArgs.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\CompletionListView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\Completion\CompletionWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\Completion\DeclarationViewWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\Completion\DefaultCompletionData.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\ICompletionData.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\ICompletionDataProvider.cs" />
-    <Compile Include="UI\Editor\GUI\Completion\TextCompletionDataProvider.cs" />
-    <Compile Include="UI\Editor\GUI\FoldMargin.cs" />
-    <Compile Include="UI\Editor\GUI\HRuler.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\IconMargin.cs" />
-    <Compile Include="UI\Editor\GUI\Ime.cs" />
-    <Compile Include="UI\Editor\GUI\Insight\AbstractInsightDataProvider.cs" />
-    <Compile Include="UI\Editor\GUI\Insight\IInsightDataProvider.cs" />
-    <Compile Include="UI\Editor\GUI\Insight\InsightEventArgs.cs" />
-    <Compile Include="UI\Editor\GUI\Insight\InsightWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\LineNumberMargin.cs" />
-    <Compile Include="UI\Editor\GUI\TextArea.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextAreaClipboardHandler.cs" />
-    <Compile Include="UI\Editor\GUI\TextAreaControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextAreaDragDropHandler.cs" />
-    <Compile Include="UI\Editor\GUI\TextAreaMouseHandler.cs" />
-    <Compile Include="UI\Editor\GUI\TextAreaUpdate.cs" />
-    <Compile Include="UI\Editor\GUI\TextEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_Base.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_Completion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_EditActions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_Insight.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_Printing.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_TextEditorProperties.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_ToolTips.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextEditorControl_Update.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Editor\GUI\TextView.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipPainter.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipPainterTools.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipSection.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipSpacer.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipSplitter.cs" />
-    <Compile Include="UI\Editor\GUI\Tip\TipText.cs" />
-    <Compile Include="UI\Editor\GUI\ToolTipRequestEventArgs.cs" />
-    <Compile Include="UI\Editor\Snippets\Snippet.cs" />
-    <Compile Include="UI\Editor\Snippets\SnippetCompletionData.cs" />
-    <Compile Include="UI\Editor\Snippets\SnippetCompletionDataProvider.cs" />
-    <Compile Include="UI\Editor\Undo\IUndoableOperation.cs" />
-    <Compile Include="UI\Editor\Undo\UndoableDelete.cs" />
-    <Compile Include="UI\Editor\Undo\UndoableInsert.cs" />
-    <Compile Include="UI\Editor\Undo\UndoableReplace.cs" />
-    <Compile Include="UI\Editor\Undo\UndoQueue.cs" />
-    <Compile Include="UI\Editor\Undo\UndoStack.cs" />
-    <Compile Include="UI\Editor\Utilities\CheckedList.cs" />
-    <Compile Include="UI\Editor\Utilities\FileReader.cs" />
-    <Compile Include="UI\Editor\Utilities\MouseWheelHandler.cs" />
-    <Compile Include="UI\Editor\Utilities\Red-Black Tree\AugmentableRedBlackTree.cs" />
-    <Compile Include="UI\Editor\Utilities\Red-Black Tree\IRedBlackTreeHost.cs" />
-    <Compile Include="UI\Editor\Utilities\Red-Black Tree\RedBlackTreeIterator.cs" />
-    <Compile Include="UI\Editor\Utilities\Red-Black Tree\RedBlackTreeNode.cs" />
-    <Compile Include="UI\Editor\Utilities\RtfWriter.cs" />
-    <Compile Include="UI\Editor\Utilities\TextHelper.cs" />
-    <Compile Include="UI\Editor\Utilities\WeakCollection.cs" />
+    <Compile Include="SolutionExplorer.cs" />
+    <Compile Include="Sps\ApplicationPlugIn.cs" />
+    <Compile Include="Sps\IApplicationPlugIn.cs" />
+    <Compile Include="Sps\IPluggable.cs" />
+    <Compile Include="Sps\IPlugIn.cs" />
+    <Compile Include="Sps\IPlugInApplication.cs" />
+    <Compile Include="Sps\IPlugInBasedApplication.cs" />
+    <Compile Include="Sps\PlugIn.cs" />
+    <Compile Include="Sps\PlugInApplication.cs" />
+    <Compile Include="Sps\PlugInApplicationAttribute.cs" />
+    <Compile Include="Sps\PlugInAttribute.cs" />
+    <Compile Include="Sps\PlugInBasedApplication.cs" />
+    <Compile Include="Sps\Runnable\IRunnable.cs" />
+    <Compile Include="Sps\Runnable\IRunnablePlugIn.cs" />
+    <Compile Include="Sps\Runnable\RunnablePlugIn.cs" />
+    <Compile Include="Sps\Runnable\RunnablePlugInBasedApplication.cs" />
+    <Compile Include="Sps\SpsHelper.cs" />
+    <Compile Include="Updater.cs" />
+    <Compile Include="Workspace.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ASPX.xshd" />
@@ -246,26 +142,23 @@
     <None Include="Resources\Tex-Mode.xshd" />
     <None Include="Resources\VBNET-Mode.xshd" />
     <None Include="Resources\XML-Mode.xshd" />
-    <None Include="UI\Editor\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="UI\Editor\obj\Debug\DigitalRune.Windows.TextEditor.csprojResolveAssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\RightArrow.cur" />
     <None Include="Resources\TextEditorControl.bmp" />
     <None Include="Resources\SyntaxModes.xml" />
-    <None Include="Resources\RightArrow.cur" />
-    <Content Include="UI\Editor\obj\Debug\DigitalRune.Windows.TextEditor.csproj.FileListAbsolute.txt" />
-    <Content Include="UI\Editor\obj\Debug\DigitalRune.Windows.TextEditor.dll" />
-    <Content Include="UI\Editor\obj\Debug\DigitalRune.Windows.TextEditor.pdb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dialogs\NewProjectDialog.resx">
+      <DependentUpon>NewProjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Editor\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
