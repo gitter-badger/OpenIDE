@@ -7,6 +7,7 @@ namespace OpenIDE.Core.Dialogs
     {
         public Guid Type { get; set; }
         public string ProjectName { get; set; }
+        public Template Template { get; set; }
 
         public NewProjectDialog()
         {
@@ -14,10 +15,13 @@ namespace OpenIDE.Core.Dialogs
 
             foreach (var item in Workspace.PluginManager.PlugIns)
             {
-                var i = new ListViewDataItem(item.Name);
-                i.Tag = item.PlugInProxy.ProjectTypeID;
+                foreach (var t in item.PlugInProxy.Templates)
+                {
+                    var i = new ListViewDataItem(t.Name);
+                    i.Tag = t;
 
-                radListView1.Items.Add(i);
+                    radListView1.Items.Add(i);
+                }
             }
         }
 
@@ -28,7 +32,10 @@ namespace OpenIDE.Core.Dialogs
 
         private void radListView1_SelectedItemChanged(object sender, EventArgs e)
         {
-            Type = (Guid)radListView1.SelectedItem.Tag;
+            var s = (Template)radListView1.SelectedItem.Tag;
+
+            Type = s.ProjectID;
+            Template = s;
         }
     }
 }

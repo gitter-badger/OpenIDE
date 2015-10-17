@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
@@ -57,6 +58,8 @@
             this.documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.radDesktopAlert1 = new Telerik.WinControls.UI.RadDesktopAlert(this.components);
+            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
@@ -188,6 +191,8 @@
             // 
             this.radMenuItem7.AccessibleDescription = "Help";
             this.radMenuItem7.AccessibleName = "Help";
+            this.radMenuItem7.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem14});
             this.radMenuItem7.Name = "radMenuItem7";
             this.radMenuItem7.Text = "Help";
             // 
@@ -328,6 +333,20 @@
             this.documentWindow1.Size = new System.Drawing.Size(687, 404);
             this.documentWindow1.Text = "Editor";
             // 
+            // radDesktopAlert1
+            // 
+            this.radDesktopAlert1.ShowOptionsButton = false;
+            this.radDesktopAlert1.ShowPinButton = false;
+            this.radDesktopAlert1.ThemeName = "VisualStudio2012Dark";
+            // 
+            // radMenuItem14
+            // 
+            this.radMenuItem14.AccessibleDescription = "Check for Updates";
+            this.radMenuItem14.AccessibleName = "Check for Updates";
+            this.radMenuItem14.Name = "radMenuItem14";
+            this.radMenuItem14.Text = "Check for Updates";
+            this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,12 +355,12 @@
             this.Controls.Add(this.radDock1);
             this.Controls.Add(this.radCommandBar1);
             this.Controls.Add(this.radMenu1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenIDE";
             this.ThemeName = "VisualStudio2012Dark";
@@ -394,6 +413,8 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem11;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
+        private Telerik.WinControls.UI.RadDesktopAlert radDesktopAlert1;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
     }
 }
 

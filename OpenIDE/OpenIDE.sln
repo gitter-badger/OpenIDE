@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDE", "OpenIDE\OpenIDE.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDE.Core", "OpenIDE.Core\OpenIDE.Core.csproj", "{FFA18CCB-077C-4040-897B-F12E4D44AD73}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{79059CC2-4EBA-4ACD-B201-4DDA65A400C7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDE.Javascript", "OpenIDE.Javascript\OpenIDE.Javascript.csproj", "{A74550AE-828D-41E6-BA9D-53CE39F81AA1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,15 +21,17 @@ Global
 		{FFA18CCB-077C-4040-897B-F12E4D44AD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFA18CCB-077C-4040-897B-F12E4D44AD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFA18CCB-077C-4040-897B-F12E4D44AD73}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A74550AE-828D-41E6-BA9D-53CE39F81AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A74550AE-828D-41E6-BA9D-53CE39F81AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A74550AE-828D-41E6-BA9D-53CE39F81AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A74550AE-828D-41E6-BA9D-53CE39F81AA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{A74550AE-828D-41E6-BA9D-53CE39F81AA1} = {79059CC2-4EBA-4ACD-B201-4DDA65A400C7}
+	GlobalSection(AutomaticVersions) = postSolution
+		AssemblyInfoFilePath = Properties\AsemblyInfo.cs
+		UpdateAssemblyVersion = True
+		UpdateAssemblyFileVersion = True
+		UpdateAssemblyInfoVersion = True
+		AssemblyVersionSettings = None.None.DayStamp.Increment
+		AssemblyFileVersionSettings = None.None.DayStamp.Increment
+		AssemblyInfoVersionSettings = None.None.DayStamp.Increment
 	EndGlobalSection
 EndGlobal

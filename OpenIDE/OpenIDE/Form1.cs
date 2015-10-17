@@ -1,5 +1,6 @@
 ﻿using OpenIDE.Core;
 using OpenIDE.Core.Dialogs;
+using OpenIDE.Core.Extensibility;
 using OpenIDE.Core.ProjectSystem;
 using System;
 using Telerik.WinControls.UI;
@@ -25,11 +26,16 @@ namespace OpenIDE
             editor.DocumentChanged += (s, e) => p.TextChanged(e.Text);
 
             documentWindow1.Controls.Add(editor);
+
+            var pp = Plugin.Load("Xml.plugin");
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            if (Updater.IsUpdateAvailable()) Updater.Update();
+            if (Updater.IsUpdateAvailable()) {
+                radDesktopAlert1.ContentText = "An Update is available. Please update!!";
+                radDesktopAlert1.Show();
+            }
         }
 
         private void radMenuItem11_Click(object sender, EventArgs e)
@@ -79,6 +85,11 @@ namespace OpenIDE
                 radTreeView1.Nodes.Clear();
                 radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
             }
+        }
+
+        private void radMenuItem14_Click(object sender, EventArgs e)
+        {
+            Updater.Update();
         }
     }
 }
