@@ -44,6 +44,7 @@
             this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
             this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.radCommandBar1 = new Telerik.WinControls.UI.RadCommandBar();
             this.commandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
@@ -59,7 +60,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.radDesktopAlert1 = new Telerik.WinControls.UI.RadDesktopAlert(this.components);
-            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
@@ -136,6 +136,7 @@
             this.radMenuItem13.AccessibleName = "File";
             this.radMenuItem13.Name = "radMenuItem13";
             this.radMenuItem13.Text = "File";
+            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
             // 
             // radMenuItem9
             // 
@@ -195,6 +196,14 @@
             this.radMenuItem14});
             this.radMenuItem7.Name = "radMenuItem7";
             this.radMenuItem7.Text = "Help";
+            // 
+            // radMenuItem14
+            // 
+            this.radMenuItem14.AccessibleDescription = "Check for Updates";
+            this.radMenuItem14.AccessibleName = "Check for Updates";
+            this.radMenuItem14.Name = "radMenuItem14";
+            this.radMenuItem14.Text = "Check for Updates";
+            this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
             // 
             // radCommandBar1
             // 
@@ -277,6 +286,7 @@
             this.radTreeView1.Size = new System.Drawing.Size(192, 409);
             this.radTreeView1.TabIndex = 0;
             this.radTreeView1.ThemeName = "VisualStudio2012Dark";
+            this.radTreeView1.SelectedNodeChanged += new Telerik.WinControls.UI.RadTreeView.RadTreeViewEventHandler(this.radTreeView1_SelectedNodeChanged);
             // 
             // toolTabStrip2
             // 
@@ -338,14 +348,6 @@
             this.radDesktopAlert1.ShowOptionsButton = false;
             this.radDesktopAlert1.ShowPinButton = false;
             this.radDesktopAlert1.ThemeName = "VisualStudio2012Dark";
-            // 
-            // radMenuItem14
-            // 
-            this.radMenuItem14.AccessibleDescription = "Check for Updates";
-            this.radMenuItem14.AccessibleName = "Check for Updates";
-            this.radMenuItem14.Name = "radMenuItem14";
-            this.radMenuItem14.Text = "Check for Updates";
-            this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
             // 
             // Form1
             // 

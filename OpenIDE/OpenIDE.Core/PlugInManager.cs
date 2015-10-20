@@ -1,14 +1,25 @@
-﻿using Hik.Sps;
-using OpenIDE.Contracts;
+﻿using OpenIDE.Core.Extensibility;
+using System.IO;
 
-namespace OpenIDE
+namespace OpenIDE.Core
 {
-    /// <summary>
-    /// Implements ICalculatorApplication and provides a container/manager for plug-ins
-    /// </summary>
-    [PlugInApplication("OpenIDE")]
-    public class PlugInManager : PlugInBasedApplication<IIDEPlugIn>, IIDEApplication
+    public class PluginManager
     {
-        
+        public PluginCollection Plugins { get; set; }
+
+        public PluginManager()
+        {
+            Plugins = new PluginCollection();
+        }
+
+        public void Load(string path)
+        {
+            foreach (var item in Directory.GetFiles(path, "*.plugin"))
+            {
+                var p = Plugin.Load(item);
+
+                Plugins.Add(p);
+            }
+        }
     }
 }

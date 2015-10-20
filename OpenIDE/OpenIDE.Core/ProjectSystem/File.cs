@@ -1,4 +1,5 @@
-﻿using System.Windows.Markup;
+﻿using System;
+using System.Windows.Markup;
 
 namespace OpenIDE.Core.ProjectSystem
 {
@@ -7,5 +8,6 @@ namespace OpenIDE.Core.ProjectSystem
     {
         public string Src { get; set; }
         public string Name { get; set; }
+        public Guid ID { get; set; }
     }
 }

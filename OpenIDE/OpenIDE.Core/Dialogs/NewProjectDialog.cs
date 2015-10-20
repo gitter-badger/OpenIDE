@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenIDE.Core.Extensibility;
+using System;
 using Telerik.WinControls.UI;
 
 namespace OpenIDE.Core.Dialogs
@@ -6,36 +7,52 @@ namespace OpenIDE.Core.Dialogs
     public partial class NewProjectDialog : RadForm
     {
         public Guid Type { get; set; }
-        public string ProjectName { get; set; }
-        public Template Template { get; set; }
+        public string Filename { get; set; }
+        public ProjectTemplate Template { get; set; }
 
         public NewProjectDialog()
         {
             InitializeComponent();
 
-            foreach (var item in Workspace.PluginManager.PlugIns)
+            Filename = "";
+
+            foreach (var item in Workspace.PluginManager.Plugins)
             {
-                foreach (var t in item.PlugInProxy.Templates)
+                foreach (var t in item.ProjectTemplates)
                 {
                     var i = new ListViewDataItem(t.Name);
+                    i.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                    i.Image = t.Icon;
                     i.Tag = t;
+                    i.ImageAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+                    i.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
 
                     radListView1.Items.Add(i);
                 }
             }
+
+            radListView1.SelectedIndex = 0;
         }
 
         private void radTextBox1_TextChanged(object sender, EventArgs e)
         {
-            ProjectName = radTextBox1.Text;
+            Filename = radTextBox1.Text;
         }
 
         private void radListView1_SelectedItemChanged(object sender, EventArgs e)
         {
-            var s = (Template)radListView1.SelectedItem.Tag;
+           var s = radListView1.SelectedItem.Tag as ProjectTemplate;
 
-            Type = s.ProjectID;
-            Template = s;
+            if (s != null)
+            {
+                Type = s.ProjectID;
+                Template = s;
+
+                if(!Filename.EndsWith(s.Extension))
+                {
+                    Filename += s.Extension;
+                }
+            }
         }
     }
 }

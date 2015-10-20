@@ -9,25 +9,19 @@ namespace OpenIDE
 {
     public partial class Form1 : RadForm
     {
-        PlugInManager _plugins = new PlugInManager();
-
         public Form1()
         {
             InitializeComponent();
 
-            _plugins.PlugInFolder = Environment.CurrentDirectory + "\\Plugins";
-            _plugins.LoadPlugIns();
+            Workspace.PluginManager = new PluginManager();
+            Workspace.PluginManager.Load(Environment.CurrentDirectory + "\\Plugins");
 
-            Workspace.PluginManager = _plugins;
+            var p = Workspace.PluginManager.Plugins[0];
 
-            var p = _plugins.PlugIns[0].PlugInProxy;
+            //var editor = EditorBuilder.Build(p.ItemTemplates[0].Highlighting, p.CompletionProvider, p.FoldingStrategy, p.Insight);
+            //editor.DocumentChanged += (s, e) => p.TextChanged(e.Text);
 
-            var editor = EditorBuilder.Build(p.Highlighting, p.CompletionProvider, p.FoldingStrategy, p.Insight);
-            editor.DocumentChanged += (s, e) => p.TextChanged(e.Text);
-
-            documentWindow1.Controls.Add(editor);
-
-            var pp = Plugin.Load("Xml.plugin");
+            //documentWindow1.Controls.Add(editor);
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -59,13 +53,13 @@ namespace OpenIDE
         private void radMenuItem12_Click(object sender, EventArgs e)
         {
             var np = new NewProjectDialog();
-            if(np.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (np.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var p = new Project();
-                p.Name = np.ProjectName;
-                p.Type = np.Type;
+                var f = new Project();
+                f.Name = np.Filename;
+                f.Type = np.Type;
 
-                Workspace.Solution.Projects.Add(p);
+                Workspace.Solution.Projects.Add(f);
 
                 radTreeView1.Nodes.Clear();
                 radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
@@ -90,6 +84,30 @@ namespace OpenIDE
         private void radMenuItem14_Click(object sender, EventArgs e)
         {
             Updater.Update();
+        }
+
+        private void radMenuItem13_Click(object sender, EventArgs e)
+        {
+            var np = new NewItemDialog();
+            if (np.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var f = new File();
+                f.Name = np.Filename;
+                f.Src = np.Filename;
+                f.ID = Workspace.SelectedProject.Type;
+
+                Workspace.SelectedProject.Files.Add(f);
+
+                radTreeView1.Nodes.Clear();
+                radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
+
+                Workspace.Solution.Save(Workspace.SolutionPath);
+            }
+        }
+
+        private void radTreeView1_SelectedNodeChanged(object sender, RadTreeViewEventArgs e)
+        {
+            Workspace.SelectedProject = radTreeView1.SelectedNode?.Tag as Project;
         }
     }
 }

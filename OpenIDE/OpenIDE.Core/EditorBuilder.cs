@@ -24,7 +24,7 @@ namespace OpenIDE.Core
 
             _completionProvider = completionProvider;
             _insight = insight;
-
+            
             ret.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter(highlighting);
             ret.Document.FormattingStrategy = new CSharpFormattingStrategy();
             ret.Document.FoldingManager.FoldingStrategy = foldingStrategy;

@@ -43,6 +43,8 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -76,9 +78,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\OpenIDE\bin\Debug\TelerikCommon.dll</HintPath>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="updateSystemDotNet.Controller">
       <HintPath>..\..\..\..\..\..\..\Program Files\updateSystem.NET\Deploy\updateSystemDotNet.Controller.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Argument.cs" />
@@ -88,23 +93,29 @@
     <Compile Include="Dialogs\NewProjectDialog.Designer.cs">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\NewItemDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NewItemDialog.Designer.cs">
+      <DependentUpon>NewItemDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorBuilder.cs" />
     <Compile Include="Extensibility\ItemTemplate.cs" />
     <Compile Include="Extensibility\Plugin.cs" />
+    <Compile Include="Extensibility\ProjectTemplate.cs" />
     <Compile Include="FilterBuilder\FilterBuilder.cs" />
     <Compile Include="FilterBuilder\FilterGroup.cs" />
     <Compile Include="FilterBuilder\Helpers.cs" />
     <Compile Include="FilterBuilder\SystemFileType.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FunctionCollection.cs" />
-    <Compile Include="IIDEApplication.cs" />
-    <Compile Include="IIDEPlugIn.cs" />
     <Compile Include="Localisation\BaseCatalog.cs" />
     <Compile Include="Localisation\Catalog.cs" />
     <Compile Include="Localisation\ICatalog.cs" />
     <Compile Include="Localisation\Loaders\MoFileParser.cs" />
     <Compile Include="Localisation\Plural\PluralFormProcessor.cs" />
-    <Compile Include="PlugInManager.cs" />
+    <Compile Include="PluginCollection.cs" />
+    <Compile Include="PluginManager.cs" />
     <Compile Include="ProjectSystem\File.cs" />
     <Compile Include="ProjectSystem\FileCollection.cs" />
     <Compile Include="ProjectSystem\Project.cs" />
@@ -117,23 +128,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SolutionExplorer.cs" />
-    <Compile Include="Sps\ApplicationPlugIn.cs" />
-    <Compile Include="Sps\IApplicationPlugIn.cs" />
-    <Compile Include="Sps\IPluggable.cs" />
-    <Compile Include="Sps\IPlugIn.cs" />
-    <Compile Include="Sps\IPlugInApplication.cs" />
-    <Compile Include="Sps\IPlugInBasedApplication.cs" />
-    <Compile Include="Sps\PlugIn.cs" />
-    <Compile Include="Sps\PlugInApplication.cs" />
-    <Compile Include="Sps\PlugInApplicationAttribute.cs" />
-    <Compile Include="Sps\PlugInAttribute.cs" />
-    <Compile Include="Sps\PlugInBasedApplication.cs" />
-    <Compile Include="Sps\Runnable\IRunnable.cs" />
-    <Compile Include="Sps\Runnable\IRunnablePlugIn.cs" />
-    <Compile Include="Sps\Runnable\RunnablePlugIn.cs" />
-    <Compile Include="Sps\Runnable\RunnablePlugInBasedApplication.cs" />
-    <Compile Include="Sps\SpsHelper.cs" />
-    <Compile Include="Template.cs" />
     <Compile Include="Updater.cs" />
     <Compile Include="Workspace.cs" />
   </ItemGroup>
@@ -143,6 +137,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Dialogs\NewProjectDialog.resx">
       <DependentUpon>NewProjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NewItemDialog.resx">
+      <DependentUpon>NewItemDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -18,17 +18,18 @@ namespace OpenIDE.Core
                 _isIdle = value;
                 IsIdleChanged?.Invoke(null, null);
             }
-        }   
-
-        public static PlugInManager PluginManager { get; set; }
+        }
 
         public static TextEditorControl CurrentEditor { get; set; }
+
+        public static PluginManager PluginManager { get; set; }
 
         public static Solution Solution { get; set; }
 
         public static string SolutionPath { get; set; }
 
         public static string AppDataPath { get; set; }
+        public static Project SelectedProject { get; set; }
 
         public static RadDock dockingManager;
 
