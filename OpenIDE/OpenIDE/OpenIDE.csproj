@@ -102,6 +102,10 @@
       <Project>{ffa18ccb-077c-4040-897b-f12e4d44ad73}</Project>
       <Name>OpenIDE.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PluginCompiler\PluginCompiler.csproj">
+      <Project>{904bca92-9e33-4e69-a1ad-9e5773988857}</Project>
+      <Name>PluginCompiler</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="1444564202_common_bookmark_book_open.ico" />

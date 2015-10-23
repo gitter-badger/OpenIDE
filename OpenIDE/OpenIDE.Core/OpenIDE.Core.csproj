@@ -15,7 +15,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -37,10 +37,6 @@
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -109,13 +105,24 @@
     <Compile Include="FilterBuilder\SystemFileType.cs" />
     <Compile Include="Function.cs" />
     <Compile Include="FunctionCollection.cs" />
+    <Compile Include="JSON\ArrayValue.cs" />
+    <Compile Include="JSON\Framework\CharParsers.cs" />
+    <Compile Include="JSON\Framework\JsonParserFromString.cs" />
+    <Compile Include="JSON\Framework\JsonParsers.cs" />
+    <Compile Include="JSON\Framework\Parser.cs" />
+    <Compile Include="JSON\Framework\ParserCombinatorExtensions.cs" />
+    <Compile Include="JSON\Framework\ParserCombinatorsMonad.cs" />
+    <Compile Include="JSON\Framework\Parsers.cs" />
+    <Compile Include="JSON\Framework\Result.cs" />
+    <Compile Include="JSON\Json.cs" />
+    <Compile Include="JSON\ObjectValue.cs" />
     <Compile Include="Localisation\BaseCatalog.cs" />
     <Compile Include="Localisation\Catalog.cs" />
     <Compile Include="Localisation\ICatalog.cs" />
     <Compile Include="Localisation\Loaders\MoFileParser.cs" />
     <Compile Include="Localisation\Plural\PluralFormProcessor.cs" />
     <Compile Include="PluginCollection.cs" />
-    <Compile Include="PluginManager.cs" />
+    <Compile Include="Extensibility\PluginManager.cs" />
     <Compile Include="ProjectSystem\File.cs" />
     <Compile Include="ProjectSystem\FileCollection.cs" />
     <Compile Include="ProjectSystem\Project.cs" />
@@ -127,6 +134,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PropertyBag\ComplexProperty.cs" />
+    <Compile Include="PropertyBag\DynamicProperty.cs" />
+    <Compile Include="PropertyBag\SimpleProperty.cs" />
     <Compile Include="SolutionExplorer.cs" />
     <Compile Include="Updater.cs" />
     <Compile Include="Workspace.cs" />

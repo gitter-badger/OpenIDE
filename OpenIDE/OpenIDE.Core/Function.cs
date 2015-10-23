@@ -1,11 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using OpenIDE.Core.PropertyBag;
 
 namespace IntegratedJs
 {
-    public class Function
+    public class Function : ComplexProperty
     {
-        public string Name { get; set; }
-        public string Args { get; set; }
-        public string Description { get; set; }
+        public string Name
+        {
+            get { return GetValue<string>("Name"); }
+            set { SetValue("Name", value); }
+        }
+
+        public string Description
+        {
+            get { return GetValue<string>("Description"); }
+            set { SetValue("Description", value); }
+        }
+
+        public string Args
+        {
+            get { return GetValue<string>("Args"); }
+            set { SetValue("Args", value); }
+        }
+
     }
 }
