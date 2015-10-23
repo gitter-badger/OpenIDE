@@ -1,4 +1,5 @@
 ﻿using Creek.Scripting;
+using DigitalRune.Windows.TextEditor.Highlighting;
 using Ionic.Zip;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.Windows;
@@ -89,9 +90,11 @@ namespace OpenIDE.Core.Extensibility
                 {
                     te.Icon = Icons[obj["Icon"].ToString()];
                 }
-                
-                //var h = z["Highlightings/" + tt["Highlighting"].Value<string>()];
-                //te.Highlighting = h.OpenReader();
+
+                var h = z["Highlighting/" + obj["Highlighting"].ToString()];
+                te.Highlighting = obj["Highlighting"].ToString();
+
+                HighlightingManager.Manager.AddSyntaxModeFileProvider(new StreamProvider(h.OpenReader()));
                 ItemTemplates.Add(te);
             }
         }

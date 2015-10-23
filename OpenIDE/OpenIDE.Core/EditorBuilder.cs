@@ -22,16 +22,16 @@ namespace OpenIDE.Core
         {
             var ret = new TextEditorControl();
 
-            _completionProvider = completionProvider;
+            /*_completionProvider = completionProvider;
             _insight = insight;
             
-            ret.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighter(highlighting);
             ret.Document.FormattingStrategy = new CSharpFormattingStrategy();
             ret.Document.FoldingManager.FoldingStrategy = foldingStrategy;
 
             ret.CompletionRequest += new EventHandler<CompletionEventArgs>(CompletionRequest);
             ret.InsightRequest += new EventHandler<InsightEventArgs>(InsightRequest);
             ret.ToolTipRequest += new EventHandler<ToolTipRequestEventArgs>(ToolTipRequest);
+            */
 
             ret.Dock = DockStyle.Fill;
 
@@ -44,13 +44,15 @@ namespace OpenIDE.Core
             timer.Tick += new EventHandler(UpdateFoldings);
             timer.Tag = ret;
 
+            ret.Document.HighlightingStrategy = HighlightingManager.Manager.FindHighlighterForFile(highlighting);
+
             return ret;
         }
 
         private static void UpdateFoldings(object sender, EventArgs e)
         {
             var s = (TextEditorControl)((Timer)sender).Tag;
-            s.Document.FoldingManager.UpdateFolds(null, null);
+            s?.Document.FoldingManager?.UpdateFolds(null, null);
         }
 
 

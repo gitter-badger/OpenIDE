@@ -1,9 +1,10 @@
 ﻿using OpenIDE.Core;
 using OpenIDE.Core.Dialogs;
-using OpenIDE.Core.Extensibility;
 using OpenIDE.Core.ProjectSystem;
 using System;
+using System.Linq;
 using Telerik.WinControls.UI;
+using Telerik.WinControls.UI.Docking;
 
 namespace OpenIDE
 {
@@ -18,10 +19,9 @@ namespace OpenIDE
 
             var p = Workspace.PluginManager.Plugins[0];
 
-            //var editor = EditorBuilder.Build(p.ItemTemplates[0].Highlighting, p.CompletionProvider, p.FoldingStrategy, p.Insight);
-            //editor.DocumentChanged += (s, e) => p.TextChanged(e.Text);
+            var editor = EditorBuilder.Build(p.ItemTemplates[0].Extension, null, null, null);
 
-            //documentWindow1.Controls.Add(editor);
+            documentWindow1.Controls.Add(editor);
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -102,6 +102,15 @@ namespace OpenIDE
                 radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
 
                 Workspace.Solution.Save(Workspace.SolutionPath);
+
+                var p = Workspace.PluginManager.Plugins.Select(_ => _).FirstOrDefault();
+
+                var editor = EditorBuilder.Build(p.ItemTemplates[0].Extension, null, null, null);
+
+                var doc = new DocumentWindow(f.Name);
+                doc.Controls.Add(editor);
+
+                radDock1.AddDocument(doc);
             }
         }
 
