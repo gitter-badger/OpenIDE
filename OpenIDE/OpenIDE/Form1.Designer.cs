@@ -126,6 +126,7 @@
             // 
             this.radMenuItem12.AccessibleDescription = "Project";
             this.radMenuItem12.AccessibleName = "Project";
+            this.radMenuItem12.Enabled = false;
             this.radMenuItem12.Name = "radMenuItem12";
             this.radMenuItem12.Text = "Project";
             this.radMenuItem12.Click += new System.EventHandler(this.radMenuItem12_Click);
@@ -134,6 +135,7 @@
             // 
             this.radMenuItem13.AccessibleDescription = "File";
             this.radMenuItem13.AccessibleName = "File";
+            this.radMenuItem13.Enabled = false;
             this.radMenuItem13.Name = "radMenuItem13";
             this.radMenuItem13.Text = "File";
             this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
