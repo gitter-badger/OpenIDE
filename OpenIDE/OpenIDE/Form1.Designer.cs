@@ -212,7 +212,7 @@
             this.radCommandBar1.Name = "radCommandBar1";
             this.radCommandBar1.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.commandBarRowElement1});
-            this.radCommandBar1.Size = new System.Drawing.Size(897, 55);
+            this.radCommandBar1.Size = new System.Drawing.Size(897, 30);
             this.radCommandBar1.TabIndex = 1;
             this.radCommandBar1.Text = "radCommandBar1";
             this.radCommandBar1.ThemeName = "VisualStudio2012Dark";
@@ -247,7 +247,7 @@
             this.radDock1.Controls.Add(this.documentContainer1);
             this.radDock1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radDock1.IsCleanUpTarget = true;
-            this.radDock1.Location = new System.Drawing.Point(0, 75);
+            this.radDock1.Location = new System.Drawing.Point(0, 50);
             this.radDock1.MainDocumentContainer = this.documentContainer1;
             this.radDock1.Name = "radDock1";
             this.radDock1.Padding = new System.Windows.Forms.Padding(0);
@@ -255,7 +255,7 @@
             // 
             // 
             this.radDock1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.radDock1.Size = new System.Drawing.Size(897, 412);
+            this.radDock1.Size = new System.Drawing.Size(897, 437);
             this.radDock1.SplitterWidth = 2;
             this.radDock1.TabIndex = 2;
             this.radDock1.TabStop = false;
@@ -270,7 +270,7 @@
             this.toolWindow1.Location = new System.Drawing.Point(4, 24);
             this.toolWindow1.Name = "toolWindow1";
             this.toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow1.Size = new System.Drawing.Size(192, 384);
+            this.toolWindow1.Size = new System.Drawing.Size(192, 409);
             this.toolWindow1.Text = "Solution Explorer";
             // 
             // radTreeView1
@@ -283,7 +283,7 @@
             this.radTreeView1.Location = new System.Drawing.Point(0, 0);
             this.radTreeView1.Name = "radTreeView1";
             this.radTreeView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radTreeView1.Size = new System.Drawing.Size(192, 384);
+            this.radTreeView1.Size = new System.Drawing.Size(192, 409);
             this.radTreeView1.TabIndex = 0;
             this.radTreeView1.ThemeName = "VisualStudio2012Dark";
             this.radTreeView1.SelectedNodeChanged += new Telerik.WinControls.UI.RadTreeView.RadTreeViewEventHandler(this.radTreeView1_SelectedNodeChanged);
@@ -300,7 +300,7 @@
             // 
             this.toolTabStrip2.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.toolTabStrip2.SelectedIndex = 0;
-            this.toolTabStrip2.Size = new System.Drawing.Size(200, 412);
+            this.toolTabStrip2.Size = new System.Drawing.Size(200, 437);
             this.toolTabStrip2.TabIndex = 2;
             this.toolTabStrip2.TabStop = false;
             this.toolTabStrip2.ThemeName = "VisualStudio2012Dark";
@@ -329,7 +329,7 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.documentTabStrip1.SelectedIndex = 0;
-            this.documentTabStrip1.Size = new System.Drawing.Size(695, 412);
+            this.documentTabStrip1.Size = new System.Drawing.Size(695, 437);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "VisualStudio2012Dark";
@@ -340,7 +340,7 @@
             this.documentWindow1.Location = new System.Drawing.Point(4, 29);
             this.documentWindow1.Name = "documentWindow1";
             this.documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindow1.Size = new System.Drawing.Size(687, 379);
+            this.documentWindow1.Size = new System.Drawing.Size(687, 404);
             this.documentWindow1.Text = "Editor";
             // 
             // radDesktopAlert1

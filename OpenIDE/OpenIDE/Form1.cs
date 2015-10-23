@@ -1,5 +1,6 @@
 ﻿using OpenIDE.Core;
 using OpenIDE.Core.Dialogs;
+using OpenIDE.Core.Extensibility;
 using OpenIDE.Core.ProjectSystem;
 using System;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace OpenIDE
             saveFileDialog1.Filter = "Solution (*.sln)|*.sln";
             if(saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Workspace.Solution = new Core.ProjectSystem.Solution();
+                Workspace.Solution = new Solution();
                 var name = Prompt.Show("Please specifiy an solution name", "Name");
                 Workspace.Solution.Name = name;
 
@@ -75,6 +76,7 @@ namespace OpenIDE
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Workspace.Solution = Solution.Load(openFileDialog1.FileName);
+                Workspace.SolutionPath = openFileDialog1.FileName;
 
                 radTreeView1.Nodes.Clear();
                 radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
@@ -94,7 +96,7 @@ namespace OpenIDE
                 var f = new File();
                 f.Name = np.Filename;
                 f.Src = np.Filename;
-                f.ID = Workspace.SelectedProject.Type;
+                f.ID = np.Type;
 
                 Workspace.SelectedProject.Files.Add(f);
 
@@ -102,10 +104,9 @@ namespace OpenIDE
                 radTreeView1.Nodes.Add(SolutionExplorer.Build(Workspace.Solution));
 
                 Workspace.Solution.Save(Workspace.SolutionPath);
+                var p = np.Template;
 
-                var p = Workspace.PluginManager.Plugins.Select(_ => _).FirstOrDefault();
-
-                var editor = EditorBuilder.Build(p.ItemTemplates[0].Extension, null, null, null);
+                var editor = EditorBuilder.Build(p.Extension, null, null, null);
 
                 var doc = new DocumentWindow(f.Name);
                 doc.Controls.Add(editor);
@@ -116,7 +117,18 @@ namespace OpenIDE
 
         private void radTreeView1_SelectedNodeChanged(object sender, RadTreeViewEventArgs e)
         {
-            Workspace.SelectedProject = radTreeView1.SelectedNode?.Tag as Project;
+            if (e.Node != null)
+            {
+                if (e.Node.Tag is File)
+                {
+                    var n = e.Node.Parent;
+                    Workspace.SelectedProject = n?.Tag as Project;
+                }
+                else
+                {
+                    Workspace.SelectedProject = radTreeView1.SelectedNode?.Tag as Project;
+                }
+            }
         }
     }
 }
